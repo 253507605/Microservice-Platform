@@ -7,17 +7,33 @@ import com.model.builder.AtdPersonPaycode;
 import com.model.builder.AtdPersonPaycode1;
 import com.model.builder.Builder;
 import com.model.builder.ConcreterBuilder;
+import com.model.command.CMDInvoker;
+import com.model.command.ConcreteCommand;
+import com.model.command.ConcreteCommand1;
+import com.model.command.Receiver;
 import com.model.factoryMethod.Factory;
 import com.model.factoryMethod.HuaweiFactory;
 import com.model.factoryMethod.IPhoneFactory;
+import com.model.iterator.Aggregate;
+import com.model.iterator.ConcreAggregate;
+import com.model.iterator.Interator;
+import com.model.mediator.*;
+import com.model.memento.Caretaker;
+import com.model.memento.Originator;
+import com.model.observer.*;
 import com.model.prototype.ConcretePrototype;
 import com.model.prototype.ConcretePrototype1;
 import com.model.prototype.prototype;
+import com.model.responsibilityChain.AbstractHanlder;
+import com.model.responsibilityChain.ConcreteHandler1;
+import com.model.responsibilityChain.ConcreteHandler2;
+import com.model.responsibilityChain.ConcreteHandler3;
 import com.model.singleton.HungrySingleton;
 import com.model.singleton.LazySingleton;
 import com.model.singleton.StaticInnerSingleton;
+import com.model.state.Context;
+import com.model.state.ThreadNewState;
 import com.model.strategy.BusFactory;
-import com.model.strategy.Context;
 import com.model.strategy.factory;
 import com.model.strategy.strategy;
 import com.model.templateMethod.Exam;
@@ -25,6 +41,9 @@ import com.model.templateMethod.Game;
 import com.model.templateMethod.template;
 import com.model.visitor.*;
 
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 import java.util.UUID;
 import java.util.concurrent.*;
 
@@ -136,9 +155,90 @@ public class Test {
 //        template1.template();
 
         //策略模式
-        factory factory = new BusFactory();
-        Context context = new Context();
-        context.setStrategy(factory.createStrategy());
-        context.toDestination();
+//        factory factory = new BusFactory();
+//        Context context = new Context();
+//        context.setStrategy(factory.createStrategy());
+//        context.toDestination();
+
+        //状态模式
+//        Context context = new Context();
+//        context.New();
+//        context.Start();
+//        context.Block();
+//        context.Dead();
+
+        //观察者模式
+//        Observer stranger = new Stranger();
+//        Observer anchor = new Anchor();
+//        Observer professional = new Professional();
+//        Subject subject = new Game1();
+//        subject.addObserver(stranger);
+//        subject.addObserver(anchor);
+//        subject.addObserver(professional);
+//        subject.publish();
+
+        //备忘录模式
+//        Originator originator = new Originator();
+//        Caretaker caretaker = new Caretaker();
+//        originator.setStatus("ls -l");
+//        caretaker.add(originator.saveMemento());
+//
+//        originator.setStatus("clear");
+//        caretaker.add(originator.saveMemento());
+//
+//        originator.setStatus("mysql -uroot -p");
+//        caretaker.add(originator.saveMemento());
+//
+//        originator.setStatus("quit");
+//        caretaker.add(originator.saveMemento());
+//        System.out.println("当前状态"+originator.getStatus());
+//        originator.getStatusFromMemento(caretaker.getMemento(2));
+//        System.out.println("回到上一次状态,状态为："+originator.getStatus());
+//        originator.getStatusFromMemento(caretaker.getMemento(1));
+//        System.out.println("回到上一次状态,状态为："+originator.getStatus());
+//        originator.getStatusFromMemento(caretaker.getMemento(0));
+//        System.out.println("回到上一次状态,状态为："+originator.getStatus());
+//        originator.getStatusFromMemento(caretaker.getMemento(0));
+//        System.out.println("回到上一次状态,状态为："+originator.getStatus());
+
+        //中介者模式
+//        Mediator mediator = new ConcreteMediator();
+//        ConreteColleague1 conreteColleague1 = new ConreteColleague1(mediator);
+//        ConreteColleague2 conreteColleague2 = new ConreteColleague2(mediator);
+//        ConreteColleague3 conreteColleague3 = new ConreteColleague3(mediator);
+//        mediator.addColleague(conreteColleague1);
+//        mediator.addColleague(conreteColleague2);
+//        mediator.addColleague(conreteColleague3);
+//
+//        conreteColleague1.publish("大家好");
+
+        //迭代器模式
+//        Aggregate aggregate = new ConcreAggregate();
+//        aggregate.add("1");
+//        aggregate.add("2");
+//        aggregate.add("3");
+//        aggregate.add("4");
+//        aggregate.add("5");
+//        Interator interator = aggregate.interator();
+//        while (interator.hasNext()){
+//            System.out.println(interator.next());
+//        }
+
+        //命令模式
+//        Receiver receiver = new Receiver();
+//        CMDInvoker invoker = new CMDInvoker(new ConcreteCommand(receiver));
+//        invoker.executeCommand();
+//        invoker.setCommand(new ConcreteCommand1(receiver));
+//        invoker.executeCommand();
+
+        //责任链模式
+        AbstractHanlder hanlder1 = new ConcreteHandler1();
+        AbstractHanlder hanlder2 = new ConcreteHandler2();
+        AbstractHanlder hanlder3 = new ConcreteHandler3();
+        hanlder1.setNextHandler(hanlder2);
+        hanlder2.setNextHandler(hanlder3);
+        hanlder1.handle(1);
+        hanlder1.handle(2);
+        hanlder1.handle(3);
     }
 }

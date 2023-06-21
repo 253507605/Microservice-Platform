@@ -2,6 +2,7 @@ package com.central.user;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Conditional;
 
 /**
  * @Author Jason.Chen
@@ -13,5 +14,9 @@ public class UserCenterApp {
 
     public static void main(String[] args) {
         SpringApplication.run(UserCenterApp.class);
+    }
+
+    public UserCenterApp(){
+        System.out.println("初始化");
     }
 }
