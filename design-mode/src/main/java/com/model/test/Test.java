@@ -232,13 +232,17 @@ public class Test {
 //        invoker.executeCommand();
 
         //责任链模式
-        AbstractHanlder hanlder1 = new ConcreteHandler1();
-        AbstractHanlder hanlder2 = new ConcreteHandler2();
-        AbstractHanlder hanlder3 = new ConcreteHandler3();
-        hanlder1.setNextHandler(hanlder2);
-        hanlder2.setNextHandler(hanlder3);
-        hanlder1.handle(1);
-        hanlder1.handle(2);
-        hanlder1.handle(3);
+//        AbstractHanlder hanlder1 = new ConcreteHandler1();
+//        AbstractHanlder hanlder2 = new ConcreteHandler2();
+//        AbstractHanlder hanlder3 = new ConcreteHandler3();
+//        hanlder1.setNextHandler(hanlder2);
+//        hanlder2.setNextHandler(hanlder3);
+//        hanlder1.handle(1);
+//        hanlder1.handle(2);
+//        hanlder1.handle(3);
+
+        String aa = "hello nowcoder";
+        String[] bb = aa.split(" ");
+        System.out.println(bb[bb.length-1].length());
     }
 }
