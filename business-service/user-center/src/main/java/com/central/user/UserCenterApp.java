@@ -1,8 +1,17 @@
 package com.central.user;
 
+import com.central.user.config.AppConfig;
+import com.central.user.controller.SysUserController;
+import org.springframework.beans.factory.config.ConfigurableListableBeanFactory;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.boot.context.properties.EnableConfigurationProperties;
+import org.springframework.context.ConfigurableApplicationContext;
 import org.springframework.context.annotation.Conditional;
+import org.springframework.stereotype.Service;
+
+import java.util.HashMap;
 
 /**
  * @Author Jason.Chen
@@ -13,7 +22,7 @@ import org.springframework.context.annotation.Conditional;
 public class UserCenterApp {
 
     public static void main(String[] args) {
-        SpringApplication.run(UserCenterApp.class);
+        SpringApplication.run(UserCenterApp.class,args);
     }
 
     public UserCenterApp(){
