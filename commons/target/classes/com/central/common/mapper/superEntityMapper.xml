@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.central.common.mapper.superEntityMapper">
+
+    <resultMap id="baseMap" type="com.central.common.model.SuperEntity">
+        <id property="id" column="id" jdbcType="BIGINT"/>
+        <result property="createTime" column="create_time" jdbcType="DATE"/>
+        <result property="updateTime" column="update_time" jdbcType="DATE"/>
+    </resultMap>
+
+
+    <select id="getAllUsers" resultType="com.central.common.model.SuperEntity">
+        select * from superentity;
+    </select>
+
+    <select id="getUserById" resultMap="baseMap">
+        select * from superentity where id=#{id};
+    </select>
+</mapper>

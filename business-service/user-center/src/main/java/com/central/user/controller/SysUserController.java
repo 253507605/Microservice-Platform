@@ -1,11 +1,14 @@
 package com.central.user.controller;
 
+import com.central.common.mapper.superEntityMapper;
+import com.central.common.model.SuperEntity;
 import com.central.user.config.AppConfig;
-import com.jason.config.UserConfig;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
 
 /**
  * @Author Jason.Chen
@@ -22,11 +25,14 @@ public class SysUserController {
     @Autowired
     private AppConfig config;
 
+    @Autowired
+    private com.central.common.mapper.superEntityMapper superEntityMapper;
+
 
     @GetMapping("/hello")
     public String hello(){
-        System.out.println(name);
-        System.out.println(config);
+//        List<SuperEntity> allUsers = superEntityMapper.getAllUsers();
+        SuperEntity users = superEntityMapper.getUserById(1);
         return "hello world!";
     }
 

@@ -21,8 +21,10 @@ import org.springframework.stereotype.Service;
 @Import(SysRoleMenu.class)
 public class AppConfig {
 
-    @Autowired
-    private SysUserController userController;
+//    @Autowired
+//    private SysUserController userController;
+
+
     @Value("${jason.name}")
     private String a;
 
